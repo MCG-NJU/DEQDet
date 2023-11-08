@@ -40,7 +40,7 @@ The convergence stablity in *fix-point* iteration looks like:
 |--------------------------------------------|-----------------------------|
 | ![rel](README/image-20230825120337072.png) | ![abs](README/image-20230825120337072.png) |
 
-A visualization notebook are also provided to demonstrate the detection power of deqdet.
+A visualization notebook is also provided to demonstrate the detection power of deqdet.
 
 | original image                 | deqdet with R50                           | deqdet with R101                           | deqdet with swins                           |
 |--------------------------------|-------------------------------------------|--------------------------------------------|---------------------------------------------|
