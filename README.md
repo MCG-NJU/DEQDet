@@ -13,13 +13,39 @@ we extend DEQ model to Query-based object detector through formulating the refin
 
 
 ## Model Released
+The pretrained models can be found in [release page](https://[test.py](tools%2Ftest.py)github.com/MCG-NJU/DEQDet/releases/tag/detection_weights). 
 
-coming soon
+| detector    | backbone | mAP            | mAP50     | mAP75           | ckpt                                                                                                       |
+|-------------|----------|----------------|-----------|-----------------|------------------------------------------------------------------------------------------------------------|
+| deqdet(2x)  | r50      | 49.6           | 68.0      | 54.0            | [download](www.github.com/MCG-NJU/DEQDet/releases/download/detection_weights/deqdet_r50_2x_epoch_24.pth)   |
+| deqdet(2x)  | r101     | 50.5           | 69.1      | 55.0            | [download](www.github.com/MCG-NJU/DEQDet/releases/download/detection_weights/deqdet_r101_2x_epoch_24.pth)  |
+| deqdet(2x)  | swins    | 54.0 | 73.4| 58.9            | [download](www.github.com/MCG-NJU/DEQDet/releases/download/detection_weights/deqdet_swins_2x_epoch_24.pth) |
+| deqdet(1x)  | r50      | 46.0 | 64.8|  49.6| [download](www.github.com/MCG-NJU/DEQDet/releases/download/detection_weights/deqdet_r50_1x_epoch_12.pth)
 
 ## Train and Evaluate
+The training script is as same as mmdetection code base.
+to train deqdet armed with R50 under 2x setting
+```shell
+bash tools/dist_train.sh projects/configs/eqdet_r50_2x_coco.py 8 
+```
 
-coming soon
+for test
+```shell
+bash tools/dist_test.sh projects/configs/eqdet_r50_2x_coco.py deqdet_r50_2x_epoch_24.pth 8
+```
+## Notebook and visualization
+The convergence stablity in *fix-point* iteration looks like:
 
+| relative error in iteration                | absolute error in iteration |
+|--------------------------------------------|-----------------------------|
+| ![rel](README/image-20230825120337072.png) | ![abs](README/image-20230825120337072.png) |
+
+A visualization notebook are also provided to demonstrate the detection power of deqdet.
+
+| original image                 | deqdet with R50                           | deqdet with R101                           | deqdet with swins                           |
+|--------------------------------|-------------------------------------------|--------------------------------------------|---------------------------------------------|
+| ![catcow](README/cat_cow1.jpg) | ![catcow](README/cat1_refinement_r50.gif) | ![catcow](README/cat1_refinement_r101.gif) | ![catcow](README/cat1_refinement_swins.gif) |
+| ![catcow](README/cat_cow2.jpg) | ![catcow](README/cat2_refinement_r50.gif) | ![catcow](README/cat2_refinement_r101.gif) | ![catcow](README/cat2_refinement_swins.gif) |
 ## Acknowledgement
 
 * object detection: [AdaMixer](https://github.com/MCG-NJU/AdaMixer), [mmdetection](https://github.com/open-mmlab/mmdetection)
