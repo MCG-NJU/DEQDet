@@ -17,10 +17,10 @@ The pretrained models can be found in [release page](https://[test.py](tools%2Ft
 
 | detector    | backbone | mAP            | mAP50     | mAP75           | ckpt                                                                                                       |
 |-------------|----------|----------------|-----------|-----------------|------------------------------------------------------------------------------------------------------------|
-| deqdet(2x)  | r50      | 49.6           | 68.0      | 54.0            | [download](www.github.com/MCG-NJU/DEQDet/releases/download/detection_weights/deqdet_r50_2x_epoch_24.pth)   |
-| deqdet(2x)  | r101     | 50.5           | 69.1      | 55.0            | [download](www.github.com/MCG-NJU/DEQDet/releases/download/detection_weights/deqdet_r101_2x_epoch_24.pth)  |
-| deqdet(2x)  | swins    | 54.0 | 73.4| 58.9            | [download](www.github.com/MCG-NJU/DEQDet/releases/download/detection_weights/deqdet_swins_2x_epoch_24.pth) |
-| deqdet(1x)  | r50      | 46.0 | 64.8|  49.6| [download](www.github.com/MCG-NJU/DEQDet/releases/download/detection_weights/deqdet_r50_1x_epoch_12.pth)
+| deqdet(2x)  | r50      | 49.6           | 68.0      | 54.0            | [download](releases/download/detection_weights/deqdet_r50_2x_epoch_24.pth)   |
+| deqdet(2x)  | r101     | 50.5           | 69.1      | 55.0            | [download](releases/download/detection_weights/deqdet_r101_2x_epoch_24.pth)  |
+| deqdet(2x)  | swins    | 54.0 | 73.4| 58.9            | [download](releases/download/detection_weights/deqdet_swins_2x_epoch_24.pth) |
+| deqdet(1x)  | r50      | 46.0 | 64.8|  49.6| [download](releases/download/detection_weights/deqdet_r50_1x_epoch_12.pth)
 
 ## Train and Evaluate
 The training script is as same as mmdetection code base. Thus before exploring DEQDet, install mmdetection first.
