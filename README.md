@@ -23,7 +23,7 @@ The pretrained models can be found in [release page](https://[test.py](tools%2Ft
 | deqdet(1x)  | r50      | 46.0 | 64.8|  49.6| [download](www.github.com/MCG-NJU/DEQDet/releases/download/detection_weights/deqdet_r50_1x_epoch_12.pth)
 
 ## Train and Evaluate
-The training script is as same as mmdetection code base.
+The training script is as same as mmdetection code base. Thus before exploring DEQDet, install mmdetection first.
 to train deqdet armed with R50 under 2x setting
 ```shell
 bash tools/dist_train.sh projects/configs/eqdet_r50_2x_coco.py 8 
