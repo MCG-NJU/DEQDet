@@ -42,10 +42,11 @@ The convergence stablity in *fix-point* iteration looks like:
 
 A visualization notebook is also provided to demonstrate the detection power of deqdet.
 
-| original image                 | deqdet with R50                           | deqdet with R101                           | deqdet with swins                           |
-|--------------------------------|-------------------------------------------|--------------------------------------------|---------------------------------------------|
-| ![catcow](README/cat_cow1.jpg) | ![catcow](README/cat1_refinement_r50.gif) | ![catcow](README/cat1_refinement_r101.gif) | ![catcow](README/cat1_refinement_swins.gif) |
-| ![catcow](README/cat_cow2.jpg) | ![catcow](README/cat2_refinement_r50.gif) | ![catcow](README/cat2_refinement_r101.gif) | ![catcow](README/cat2_refinement_swins.gif) |
+| original image                 | deqdet/deqseg with R50                         | deqdet/deqseg with R101                         | deqdet/deqseg with swins                    |
+|--------------------------------|------------------------------------------------|-------------------------------------------------|---------------------------------------------|
+| ![catcow](README/cat_cow1.jpg) | ![catcow](README/cat1_refinement_r50.gif)      | ![catcow](README/cat1_refinement_r101.gif)      | ![catcow](README/cat1_refinement_swins.gif) |
+| ![catcow](README/cat_cow2.jpg) | ![catcow](README/cat2_refinement_r50.gif)      | ![catcow](README/cat2_refinement_r101.gif)      | ![catcow](README/cat2_refinement_swins.gif) |
+| ![catcow](README/cat_cow1.jpg) | ![catcow](README/mask_cat1_refinement_r50.gif) | ![catcow](README/mask_cat1_refinement_r101.gif) | no money to train                           | 
 ## Acknowledgement
 
 * object detection: [AdaMixer](https://github.com/MCG-NJU/AdaMixer), [mmdetection](https://github.com/open-mmlab/mmdetection)
