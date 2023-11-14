@@ -240,14 +240,14 @@ class DEQDetRoIHead(CascadeRoIHead):
             loss_dict.update(self.layer_loss('init_', 0, assigner, sampler, feats, init_results, batch_metas))
             sup_results = init_results
             for i in range(self.extra_supervisions_on_init_head):
-                layer, assigner, sampler = self.bbox_head[1], self.bbox_assigner[1], self.bbox_sampler[1]
+                layer, assigner, sampler = self.bbox_head[-1], self.bbox_assigner[-1], self.bbox_sampler[-1]
                 sup_results = self.layer_forward(1, mask_feats, mlvl_feats, *sup_results, need_mask=False)
                 loss_dict.update(
                     self.layer_loss(f'init^{i + 1}_', 1, assigner, sampler, feats, sup_results, batch_metas))
             results = [_.detach() if _ is not None else None for _ in init_results]
         else:
             results = (init_position, init_content, None, None, init_bbox, None)
-        layer, assigner, sampler = self.bbox_head[1], self.bbox_assigner[1], self.bbox_sampler[1]
+        layer, assigner, sampler = self.bbox_head[-1], self.bbox_assigner[-1], self.bbox_sampler[-1]
         for i in range(1, self.refinement_steps):
             with (torch.no_grad()):
                 if (torch.rand(1) < self.perturb_content_prob).item():
