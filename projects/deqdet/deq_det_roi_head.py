@@ -248,7 +248,7 @@ class DEQDetRoIHead(CascadeRoIHead):
         else:
             results = (init_position, init_content, None, None, init_bbox, None)
         layer, assigner, sampler = self.bbox_head[-1], self.bbox_assigner[-1], self.bbox_sampler[-1]
-        for i in range(1, self.refinement_steps):
+        for i in range(1, self.refinement_steps+1):
             with (torch.no_grad()):
                 if (torch.rand(1) < self.perturb_content_prob).item():
                     position, content, attn_mask, filter, cls, bbox, mask = results
