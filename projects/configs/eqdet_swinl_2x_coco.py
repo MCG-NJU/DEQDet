@@ -1,5 +1,5 @@
 _base_ = ['./eqdet_r50_2x_coco.py']
-pretrained = './swinv2_large_patch4_window12_192_22k.pth'  # noqa
+pretrained = './swin_large_patch4_window12_384_22k.pth'  # noqa
 depths = [2, 2, 18, 2]
 model = dict(
     # type='DEQDet',
@@ -21,7 +21,7 @@ model = dict(
         out_indices=(0, 1, 2, 3),
         # Please only add indices that would be used
         # in FPN, otherwise some parameter will not be used
-        with_cp=True,
+        with_cp=False,
         convert_weights=True,
         init_cfg=dict(type='Pretrained', checkpoint=pretrained)),
     neck=dict(in_channels=[192, 384, 768, 1536]),
