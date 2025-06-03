@@ -1,28 +1,30 @@
 _base_ = ['./eqdet_r50_2x_coco.py']
-pretrained = 'https://github.com/SwinTransformer/storage/releases/download/v2.0.0/swinv2_large_patch4_window12_192_22k.pth'  # noqa
+pretrained = './swinv2_large_patch4_window12_192_22k.pth'  # noqa
 depths = [2, 2, 18, 2]
 model = dict(
     # type='DEQDet',
     backbone=dict(
         _delete_=True,
         type='SwinTransformer',
-        embed_dims=96,
-        depths=depths,
-        num_heads=[3, 6, 12, 24],
-        window_size=7,
+        pretrain_img_size=384,
+        embed_dims=192,
+        depths=[2, 2, 18, 2],
+        num_heads=[6, 12, 24, 48],
+        window_size=12,
         mlp_ratio=4,
         qkv_bias=True,
         qk_scale=None,
         drop_rate=0.,
         attn_drop_rate=0.,
-        drop_path_rate=0.3,
+        drop_path_rate=0.2,
         patch_norm=True,
         out_indices=(0, 1, 2, 3),
-        with_cp=False,
+        # Please only add indices that would be used
+        # in FPN, otherwise some parameter will not be used
+        with_cp=True,
         convert_weights=True,
-        frozen_stages=-1,
         init_cfg=dict(type='Pretrained', checkpoint=pretrained)),
-    neck=dict(in_channels=[96, 192, 384, 768]),
+    neck=dict(in_channels=[192, 384, 768, 1536]),
     init_cfg=None)
 
 # set all layers in backbone to lr_mult=0.1
