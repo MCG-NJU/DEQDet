@@ -27,7 +27,7 @@ class FixPositionEmbeddingRPNHead(EmbeddingRPNHead):
             self.num_proposals, self.proposal_feature_channel)
     def _decode_init_proposals(self, x: List[Tensor],
                                batch_data_samples: SampleList) -> InstanceList:
-        rpn_results_list = super()._decode_init_proposals(x, batch_data_samples)
+        rpn_results_list = super()._decode_init_proposals(list(x), batch_data_samples)
         for rpn_results in rpn_results_list:
             rpn_results.features = torch.layer_norm(rpn_results.features, normalized_shape=[self.proposal_feature_channel])
         return rpn_results_list

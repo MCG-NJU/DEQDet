@@ -17,5 +17,5 @@ class ChannelMapperWithGN(ChannelMapper):
 
     def forward(self, inputs: Tuple[Tensor]) -> Tuple[Tensor]:
         outs = super().forward(inputs)
-        outs = (self.gn_out(out) for out in outs)
+        outs = [self.gn_out(out) for out in outs]
         return outs
