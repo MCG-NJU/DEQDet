@@ -56,4 +56,4 @@ custom_keys.update({'bbox_head': dict(lr_mult=4, decay_mult=10)})
 optim_wrapper = dict(
     paramwise_cfg=dict(custom_keys=custom_keys, norm_decay_mult=0.0))
 resume=True
-resume_from = "/mnt/bn/wangshuai6/deqdet/work_dirs/eqdet_swinl_2x_coco/epoch_7.pth"
+load_from = "/mnt/bn/wangshuai6/deqdet/work_dirs/eqdet_swinl_2x_coco/epoch_7.pth"
