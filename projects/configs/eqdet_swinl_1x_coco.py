@@ -1,6 +1,8 @@
 _base_ = ['./eqdet_r50_1x_coco.py']
 pretrained = './swin_large_patch4_window12_384_22k.pth'  # noqa
 depths = [2, 2, 18, 2]
+num_proposals = 300
+
 model = dict(
     # type='DEQDet',
     backbone=dict(
@@ -25,6 +27,9 @@ model = dict(
         convert_weights=True,
         init_cfg=dict(type='Pretrained', checkpoint=pretrained)),
     neck=dict(in_channels=[192, 384, 768, 1536]),
+    rpn_head=dict(num_proposals=num_proposals),
+    test_cfg=dict(
+        _delete_=True, rpn=None, rcnn=dict(max_per_img=num_proposals)),
     init_cfg=None)
 
 # set all layers in backbone to lr_mult=0.1
