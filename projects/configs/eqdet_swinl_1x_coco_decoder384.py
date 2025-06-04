@@ -1,4 +1,4 @@
-_base_ = ['./eqdet_swins_2x_coco.py']
+_base_ = ['./eqdet_swinl_1x_coco.py']
 pretrained = './swin_large_patch4_window12_384_22k.pth'  # noqa
 depths = [2, 2, 18, 2]
 
@@ -9,7 +9,7 @@ num_stuff_classes = 53
 
 refinement_steps = 20
 num_query = 100
-QUERY_DIM = 512
+QUERY_DIM = 384
 FEAT_DIM = 256
 FF_DIM = 2048
 # P_in for spatial mixing in the paper.
@@ -105,3 +105,4 @@ custom_keys.update({'bbox_head': dict(lr_mult=4, decay_mult=10)})
 optim_wrapper = dict(
     paramwise_cfg=dict(custom_keys=custom_keys, norm_decay_mult=0.0))
 resume=True
+load_from = None
