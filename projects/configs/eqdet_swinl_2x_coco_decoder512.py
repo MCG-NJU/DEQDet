@@ -9,7 +9,7 @@ num_stuff_classes = 53
 
 refinement_steps = 20
 num_query = 100
-QUERY_DIM = 384
+QUERY_DIM = 512
 FEAT_DIM = 256
 FF_DIM = 2048
 # P_in for spatial mixing in the paper.
