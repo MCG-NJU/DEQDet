@@ -1,7 +1,7 @@
 _base_ = ['./eqdet_r50_2x_coco.py']
 pretrained = './swin_large_patch4_window12_384_22k.pth'  # noqa
 depths = [2, 2, 18, 2]
-num_proposals = 300
+num_proposals = 900
 model = dict(
     # type='DEQDet',
     backbone=dict(
